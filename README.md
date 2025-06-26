@@ -41,7 +41,7 @@ Projeto de prática para manipulação avançada do DOM com JavaScript. O objeti
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/cadastro-alunos.git
+git clone https://github.com/Gilberto-Okimura/Sistema-de-cadastro-de-alunos-com-DOM
 ```
 
 2. Abra o arquivo `index.html` no seu navegador (não precisa de servidor).
