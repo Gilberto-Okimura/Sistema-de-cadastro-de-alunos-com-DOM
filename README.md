@@ -48,15 +48,7 @@ git clone https://github.com/seu-usuario/cadastro-alunos.git
 
 ---
 
-## ✍️ Melhorias sugeridas
-
-- [ ] Usar classes ou módulos para organizar o código
-- [ ] Adicionar paginação para muitos alunos
-- [ ] Estilizar com Bootstrap ou Tailwind
-- [ ] Validações mais robustas
-
----
 
 ## 👨‍💻 Autor
 
-Feito por [Seu Nome Aqui] — projeto de prática DOM + lógica avançada.
+Feito por Okimura — projeto de prática DOM
