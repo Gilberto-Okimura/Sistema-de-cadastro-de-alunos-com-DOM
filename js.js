@@ -4,7 +4,7 @@ let name_f = document.getElementById('nome').value
 let year_f = document.getElementById('idade').value
 let course_f = document.getElementById('curso')
 let form = document.querySelector('form')
-
+   
 
 
 form.onsubmit = function(event){ //Quando for enviado
@@ -18,28 +18,41 @@ form.onsubmit = function(event){ //Quando for enviado
   }
 
 
-  let alunos = [datatosave] //armazena em um array
+  let alunos = [] 
+  alunos.push(datatosave)//armazena em um array
+  
 
   console.log(alunos);
 
  function list(){
+  
     let criarLi = document.createElement('li')
     let ulpai = document.getElementById("lista-alunos")
+      
 
     for(let i = 0; i < alunos.length; i++){
-       let criarbotao_ofdel = document.createElement('button')
+            
           let ulcriar = ulpai.appendChild(criarLi )
           ulcriar.innerText += `Aluno: nome:${datatosave.nome} idade:${datatosave.idade} curso: ${datatosave.curso}`
+            
+         let criarbotao_ofdel = document.createElement('button')
+         let criarbotao_ofedit = document.createElement('button')
+         criarbotao_ofdel.textContent = "Deletar Aluno"
+         criarbotao_ofedit.textContent = "Editar informação"
+         
 
-
+         
+         criarLi.appendChild(criarbotao_ofdel)
+         criarLi.appendChild(criarbotao_ofedit)
+      
+         criarbotao_ofdel.onclick = function(){ criarLi.remove();
+            
+          }
     }
-   
-
-   
 
  }
    list()
-    
+   
 
   
 }
