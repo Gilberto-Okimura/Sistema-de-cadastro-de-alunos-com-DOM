@@ -7,7 +7,7 @@
    
 </head>
 <body>
-    <form id="form-aluno" onsubmit="caputrarValForm()" >
+    <form id="form-aluno" onsubmit="" method="post">
   <input type="text" id="nome" placeholder="Nome do aluno" required name="nome" />
   <input type="number" id="idade" placeholder="Idade" required name="idade"/>
   <select name="curso" id="curso">
@@ -19,6 +19,7 @@
          <option value="Enfermagem">Enfermagem</option>
   </select>
   <button type="submit">Cadastrar</button>
+  
 </form>
 
 <input type="text" id="filtro" placeholder="Filtrar por curso..." />

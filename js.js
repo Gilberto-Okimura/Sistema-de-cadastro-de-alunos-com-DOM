@@ -1,62 +1,65 @@
 
 
-let name_f = document.getElementById('nome').value
-let year_f = document.getElementById('idade').value
-let course_f = document.getElementById('curso')
-let form = document.querySelector('form')
-   
+
+let form = document.querySelector('form')//Seleciona o form
+let alunos = [];//armazena do formdata num array
+
 
 
 form.onsubmit = function(event){ //Quando for enviado
   event.preventDefault() // quando vier default (nulo)
+
+   
 
   const formdata = new FormData(form) //usa uma função do js que pega toda informação do form. 
   const datatosave = { // aqui e para pegar cada elemento na query.
     nome: formdata.get('nome') ,
     idade: formdata.get('idade'),
     curso: formdata.get('curso')
-  }
+         }   
+         alunos.push(datatosave)//adiciona no array o objeto datatosave
+         list()//executa.
+        
+         console.log(alunos)
+}
 
 
-  let alunos = [] 
-  alunos.push(datatosave)//armazena em um array
-  
+function list() {
+   const ulpai = document.getElementById("lista-alunos")
+   ulpai.innerHTML = '' // Limpa a lista antes de recriar
 
-  console.log(alunos);
+   alunos.forEach((aluno, index) => { // foreach passando duas funcoes dele mesmo. valor atual(aluno), indice(index)
+      const criarLi = document.createElement('li')
+      ulpai.appendChild(criarLi)//depos de criado a li, e definida que ul e a progenitora de li portanto ela vai dentro
 
- function list(){
-  
-    let criarLi = document.createElement('li')
-    let ulpai = document.getElementById("lista-alunos")
-      
+      criarLi.textContent += `Aluno ${index + 1}: Nome: ${aluno.nome}, Idade: ${aluno.idade}, Curso: ${aluno.curso}`
 
-    for(let i = 0; i < alunos.length; i++){
-            
-          let ulcriar = ulpai.appendChild(criarLi )
-          ulcriar.innerText += `Aluno: nome:${datatosave.nome} idade:${datatosave.idade} curso: ${datatosave.curso}`
-            
-         let criarbotao_ofdel = document.createElement('button')
-         let criarbotao_ofedit = document.createElement('button')
-         criarbotao_ofdel.textContent = "Deletar Aluno"
-         criarbotao_ofedit.textContent = "Editar informação"
-         
+      const criarSelect = document.createElement('input')
+      criarSelect.type = 'checkbox'
 
-         
-         criarLi.appendChild(criarbotao_ofdel)
-         criarLi.appendChild(criarbotao_ofedit)
-      
-         criarbotao_ofdel.onclick = function(){ criarLi.remove();
-            
-          }
-    }
-
- }
-   list()
+      criarLi.appendChild(criarSelect) // mesma coisa do ulpai.
    
 
-  
+      let btn_del = document.createElement('button')
+      criarLi.appendChild(btn_del)
+
+      btn_del.textContent = 'Deletar'
+      btn_del.onclick = function() { // uma funcao que funciona ao clicar
+         if(criarSelect.checked){//checa se o check box esta marcado
+            console.log(`Marcado${index}`)
+            alunos.splice(index, 1)//remove do array
+            ulpai.removeChild(criarLi) // remove da tela.
+            
+         } else {
+            console.log('desmarcado')
+         }
+      }
+       
+   })
+
+   
+
 }
 
 
  
-
